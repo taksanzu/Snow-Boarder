@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeadCrashingEvent : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class HeadCrashingEvent : MonoBehaviour
    {
        if (other.tag == "Surface")
        {
-           Debug.Log("Player has crashed his head!");
+           SceneManager.LoadScene(0);
        }
    }
 }
