@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class HeadCrashingEvent : MonoBehaviour
 {
+    private float reloadTime = 1.5f;
    void OnTriggerEnter2D(Collider2D other)
    {
        if (other.tag == "Surface")
        {
-           SceneManager.LoadScene(0);
+            Invoke("ReloadScene", reloadTime); 
        }
+   }
+
+   void ReloadScene()
+   {
+       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
    }
 }
