@@ -913,6 +913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torqueForce: 5
+  bootsForce: 20
+  baseSpeed: 10
 --- !u!58 &898649398
 CircleCollider2D:
   m_ObjectHideFlags: 0
