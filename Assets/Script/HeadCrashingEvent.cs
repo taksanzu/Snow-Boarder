@@ -7,12 +7,16 @@ public class HeadCrashingEvent : MonoBehaviour
 {
     private float reloadTime = 1.5f;
     [SerializeField] ParticleSystem headCrashEffect;
+    AudioSource audioSource;
+    void Start(){
+        audioSource = GetComponent<AudioSource>();
+    }
    void OnTriggerEnter2D(Collider2D other)
    {
        if (other.tag == "Surface")
        {
-            headCrashEffect.transform.position = transform.position;
             headCrashEffect.Play();
+            audioSource.Play();
             Invoke("ReloadScene", reloadTime); 
        }
    }
