@@ -8,8 +8,10 @@ public class FinishLine : MonoBehaviour
 {
     [SerializeField] ParticleSystem finishLineParticles;
     AudioSource audioSource;
+    PlayerController playerController;
     void Start(){
         audioSource = GetComponent<AudioSource>();
+        playerController = FindObjectOfType<PlayerController>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,6 +19,7 @@ public class FinishLine : MonoBehaviour
         {
             finishLineParticles.Play();
             audioSource.Play();
+            playerController.DisableMovement();
             Invoke("ReLoadScene", 1f);
         }
     }
