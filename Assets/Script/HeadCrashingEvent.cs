@@ -8,6 +8,7 @@ public class HeadCrashingEvent : MonoBehaviour
     private float reloadTime = 1.5f;
     [SerializeField] ParticleSystem headCrashEffect;
     AudioSource audioSource;
+    bool soundPlayed = false;
 
     PlayerController playerController;
     void Start(){
@@ -16,11 +17,12 @@ public class HeadCrashingEvent : MonoBehaviour
     }
    void OnTriggerEnter2D(Collider2D other)
    {
-       if (other.tag == "Surface")
+       if (other.tag == "Surface" && !soundPlayed)
        {
             headCrashEffect.Play();
             audioSource.Play();
             playerController.DisableMovement();
+            soundPlayed = true;
             Invoke("ReloadScene", reloadTime); 
        }
    }
